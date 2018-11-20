@@ -58,36 +58,6 @@ body{
     cursor: pointer;
 }
 
-.waves-effect {
-    position: relative;
-    cursor: pointer;
-    overflow: hidden;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -webkit-tap-highlight-color: transparent;
-}
-a {
-    cursor: pointer;
-    text-decoration: none;
-    color: #007bff;
-    -webkit-transition: all .2s ease-in-out;
-    -o-transition: all .2s ease-in-out;
-    transition: all .2s ease-in-out;
-}
-a {
-    color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-user agent stylesheet
-a:-webkit-any-link {
-    color: -webkit-link;
-    cursor: pointer;
-    text-decoration: underline;
-}
 
 .fa-arrow-up:before {
     content: "\f062";
