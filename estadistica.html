@@ -1,0 +1,97 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title> DEV Technology - Inicio </title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap2.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="pics/f3.jpg" style="width: 100%;height: auto">
+    <div class="centered">
+        <i id="icon" class="fa fa-home" style="text-shadow: none; font-size: 106px; color: rgb(255, 255, 255); height: 135px; width: 135px; line-height: 135px; border-radius: 9%; text-align: center; background-color: rgb(3, 53, 62);"></i> 
+      <h1>DEV TECHNOLOGY</h1>
+      <H1></H1>
+    </div>
+  </div>
+
+  <!--Navbar-->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark " style="background-color:#04060F">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">
+      <i id="icon" class="fa fa-home" style="text-shadow: none; font-size: 33px; color: rgb(255, 255, 255); height: 40px; width: 40px; line-height: 40px; border-radius: 8%; text-align: center; background-color: rgb(3, 53, 62);"></i>
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">DEV Technology
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contacto.html">Contacto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="estadistica.html">Estadisticas</a>
+      </li>
+     
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">Acerca de Nosotros</a>
+      </li>
+      
+      <!-- Collapsible content -->
+  </ul>
+  </nav>
+  <!--/.Navbar-->
+
+  <!-- BODY -->
+  
+
+<center><h1 style=" color: white;">CONSUMO DE LUZ </h1></center>
+<canvas id="chartjs-4" class="chartjs" width="500" height="200" style=" display: block; height: 307px; width: 614px; "></canvas>
+
+<script>
+      new Chart(document.getElementById("chartjs-4"),
+            {"type":"doughnut","data":
+            {"labels":["Cuarto 1","Cuarto 2","Cuarto 3"],
+            "fontColor":["rgb(255,255,255)"],
+            "datasets":[{"label":"My First Dataset","data":[300,50,100],
+            "backgroundColor":
+            ["rgb(153,204,204)","rgb(2,148,165)","rgb(193,64,61)"]}]}});
+</script>
+
+
+  <!-- /BODY-->
+  <hr>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>
+
+
