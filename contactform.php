@@ -6,7 +6,7 @@
 		$mailform=$_POST['mail'];
 		$messagg=$_POST['message'];
 	}
-	$mailTo="carrasco.555@live.com";
+	$mailTo="davicho201170@gmail.com";
 	$headers="De: ".$mailform;
 	$txt="Telefono: ".$tele.".\n\n Haz recibido un correo electronico de ".$name.".\n\n".$message;
 	mail($mailTo,$subject,$txt,$headers);
