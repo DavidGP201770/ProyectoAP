@@ -4,18 +4,17 @@
 	if (isset($_GET['edit'])) {
 		$id = $_GET['edit'];
 		$update = true;
-		$record = mysqli_query($db, "SELECT * FROM info WHERE id=$id");
+		$record = mysqli_query($db, "SELECT * FROM usuarios WHERE id=$id");
 
 		if (@count($record) == 1 ) {
 			$n = mysqli_fetch_array($record);
 			$name = $n['name'];
-			$address = $n['address'];
-    $user= $n['user'];
-    $pass=$n['pass'];
-    $user=$n['user'];
-    $last=$n['last'];
-    $email=$n['email'];
-    $tel=$n['tel'];
+			$address = $n['direccion'];
+      $pass=$n['password'];
+      $user=$n['usuario'];
+      $last=$n['last'];
+      $email=$n['correo'];
+      $tel=$n['telefono'];
 
 		}
 	}
@@ -45,7 +44,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css" rel="stylesheet">
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-  <link href="style.css" rel="stylesheet">
+  <link href="adminstyle.css" rel="stylesheet">
 
 
 </head>
@@ -102,7 +101,7 @@
 	</div>
 	<?php endif ?>
 
-<?php $results = mysqli_query($db, "SELECT * FROM usuarios"); ?>
+<?php $results = mysqli_query($db, "SELECT * FROM usuarios WHERE tipo='U'"); ?>
 
 <table>
 	<thead>

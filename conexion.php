@@ -1,19 +1,30 @@
 <?php 
 	session_start();
-	$db = mysqli_connect('localhost', 'root', '', 'crud');
+	$db = mysqli_connect('localhost', 'root', '', 'proyecto');
 
 	// initialize variables
 	$name = "";
 	$address = "";
+	$user= "";
+    $pass="";
+    $last="";
+    $email="";
+    $tel="";
+    $tipo="U";
 	$id = 0;
 	$update = false;
 
 	if (isset($_POST['save'])) {
 		$name = $_POST['name'];
 		$address = $_POST['address'];
+		$user= $_POST['user'];
+   		$pass=$_POST['pass'];
+        $last=$_POST['last'];
+        $email=$_POST['email'];
+        $tel=$_POST['tel'];
 
-		mysqli_query($db, "INSERT INTO info (name, address) VALUES ('$name', '$address')"); 
-		$_SESSION['message'] = "Address saved"; 
+		mysqli_query($db, "INSERT INTO usuarios (usuario, password, tipo, name, last, correo, direccion, telefono) VALUES ('$user', '$pass', '$tipo', '$name', '$last', '$email', '$address', '$tel')"); 
+		$_SESSION['message'] = "Usuario guardado"; 
 		header('location: administracionusuarios.php');
 	}
 
@@ -21,16 +32,21 @@
 		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$address = $_POST['address'];
+		$user= $_POST['user'];
+   		$pass=$_POST['pass'];
+        $last=$_POST['last'];
+        $email=$_POST['email'];
+        $tel=$_POST['tel'];
 
-		mysqli_query($db, "UPDATE info SET name='$name', address='$address' WHERE id=$id");
-		$_SESSION['message'] = "Address updated!"; 
+		mysqli_query($db, "UPDATE usuarios SET usuario='$user', password='$pass', name='$name', last='$last', correo='$email', direccion='$address', telefono='$tel' WHERE id=$id");
+		$_SESSION['message'] = "Usuario actualizado!"; 
 		header('location: administracionusuarios.php');
     }
 
     if (isset($_GET['del'])) {
 		$id = $_GET['del'];
-		mysqli_query($db, "DELETE FROM info WHERE id=$id");
-		$_SESSION['message'] = "Address deleted!"; 
+		mysqli_query($db, "DELETE FROM usuarios WHERE id=$id");
+		$_SESSION['message'] = "Usuario eliminado!"; 
 		header('location: administracionusuarios.php');
     }
 
