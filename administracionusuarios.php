@@ -1,0 +1,216 @@
+<?php  include('conexion.php'); ?>
+
+<?php 
+	if (isset($_GET['edit'])) {
+		$id = $_GET['edit'];
+		$update = true;
+		$record = mysqli_query($db, "SELECT * FROM info WHERE id=$id");
+
+		if (@count($record) == 1 ) {
+			$n = mysqli_fetch_array($record);
+			$name = $n['name'];
+			$address = $n['address'];
+    $user= $n['user'];
+    $pass=$n['pass'];
+    $user=$n['user'];
+    $last=$n['last'];
+    $email=$n['email'];
+    $tel=$n['tel'];
+
+		}
+	}
+?>
+
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title> DEV Technology - Inicio </title>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.5.14/css/mdb.min.css" rel="stylesheet">
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+  <div class="header">
+    <img src="pics/f3.jpg" style="width: 100%;height: auto">
+    <div class="centered">
+        <i id="icon" class="fa fa-home" style="text-shadow: none; font-size: 106px; color: rgb(255, 255, 255); height: 135px; width: 135px; line-height: 135px; border-radius: 9%; text-align: center; background-color: rgb(3, 53, 62);"></i> 
+      <h1>DEV TECHNOLOGY</h1>
+      <H1></H1>
+    </div>
+  </div>
+
+  <!--Navbar-->
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark " style="background-color:#04060F">
+
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">
+      <i id="icon" class="fa fa-home" style="text-shadow: none; font-size: 33px; color: rgb(255, 255, 255); height: 40px; width: 40px; line-height: 40px; border-radius: 8%; text-align: center; background-color: rgb(3, 53, 62);"></i>
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="administracionusuarios.php">DEV Technology
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contacto.html">Contacto</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">Acerca de Nosotros</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="login.html">Return</a>
+      </li>
+      
+      <!-- Collapsible content -->
+  </ul>
+  </nav>
+  <!--/.Navbar-->
+
+  <!-- BODY -->
+  <body>
+
+	<?php if (isset($_SESSION['message'])): ?>
+	<div class="msg">
+		<?php 
+			echo $_SESSION['message']; 
+			unset($_SESSION['message']);
+		?>
+	</div>
+	<?php endif ?>
+
+<?php $results = mysqli_query($db, "SELECT * FROM usuarios"); ?>
+
+<table>
+	<thead>
+		<tr>
+      <th>Usuario</th>
+      <th>Password</th>
+			<th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Correo</th>
+			<th>Direccion</th>
+      <th>Telefono</th>
+			<th colspan="2">Action</th>
+		</tr>
+	</thead>
+	
+	<?php while ($row = mysqli_fetch_array($results)) { ?>
+		<tr>
+      <td><?php echo $row['usuario']; ?></td>
+      <td><?php echo $row['password']; ?></td>
+      <td><?php echo $row['name']; ?></td>
+			<td><?php echo $row['last']; ?></td>
+      <td><?php echo $row['correo']; ?></td>
+			<td><?php echo $row['direccion']; ?></td>
+      <td><?php echo $row['telefono']; ?></td>
+			<td>
+				<a href="administracionusuarios.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a>
+			</td>
+			<td>
+				<a href="conexion.php?del=<?php echo $row['id']; ?>" class="del_btn">Delete</a>
+			</td>
+		</tr>
+	<?php } ?>
+</table>
+
+
+	<form  action="conexion.php" method="post">
+		<input type="hidden" name="id" value="<?php echo $id; ?>">
+    <div class="input-group">
+      <label>Usuario</label>
+      <input type="text" name="user" value="<?php echo $user; ?>">
+    </div>
+    <div class="input-group">
+      <label>Password</label>
+      <input type="text" name="pass" value="<?php echo $pass; ?>">
+    </div>
+		<div class="input-group">
+			<label>Nombre</label>
+			<input type="text" name="name" value="<?php echo $name; ?>">
+		</div>
+    <div class="input-group">
+      <label>Apellido</label>
+      <input type="text" name="last" value="<?php echo $last; ?>">
+    </div>
+    <div class="input-group">
+      <label>Correo</label>
+      <input type="text" name="email" value="<?php echo $email; ?>">
+    </div>
+		<div class="input-group">
+			<label>Direccion</label>
+			<input type="text" name="address" value="<?php echo $address; ?>">
+		</div>
+    <div class="input-group">
+      <label>Telefono</label>
+      <input type="text" name="tel" value="<?php echo $tel; ?>">
+    </div>
+		<div class="input-group">
+			<?php if ($update == true): ?>
+				<button class="btn" type="submit" name="update" style="background: #556B2F;" >update</button>
+				<?php else: ?>
+				<button class="btn" type="submit" name="save" >Save</button>
+			<?php endif ?>
+		</div>
+	</form>
+</body>
+
+
+
+  <!-- /BODY-->
+  <hr>
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
