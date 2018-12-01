@@ -251,11 +251,30 @@
 <!-- Card -->
 </div>
 
-<div class="fixed-action-btn">
-	<a class="btn-floating btn-large green">
-		<i class="large material-icons">airplay</i>
-	</a>
+
+
+<div class="zoom">
+
+  <a class="zoom-fab zoom-btn-large large material-icons" id="zoomBtn">airplay</a>
+
+  <ul class="zoom-menu">
+
+    <li><a class="zoom-fab zoom-btn-sm zoom-btn-person scale-transition scale-out">Action 1</a></li>
+
+  </ul>
+
+  <div class="zoom-card scale-transition scale-out">
+
+    <ul class="zoom-card-content">
+
+      <li>Content 1</li>
+
+    </ul>
+
+  </div>
+
 </div>
+
 
 <!-- /BODY-->
 <hr>
@@ -433,9 +452,55 @@
 </script>
 
 <script>
-	$(document).ready(function () {
-		$('.fixed-action-btn').floatingActionButton();
-	}); 
+	$('#zoomBtn').click(function() {
+  $('.zoom-btn-sm').toggleClass('scale-out');
+
+  if (!$('.zoom-card').hasClass('scale-out')) {
+
+    $('.zoom-card').toggleClass('scale-out');
+
+  }
+
+});
+
+ 
+
+$('.zoom-btn-sm').click(function() {
+
+  var btn = $(this);
+
+  var card = $('.zoom-card');
+
+  if ($('.zoom-card').hasClass('scale-out')) {
+
+    $('.zoom-card').toggleClass('scale-out');
+
+  }
+
+  if (btn.hasClass('zoom-btn-person')) {
+
+    card.css('background-color', '#d32f2f');
+
+  } else if (btn.hasClass('zoom-btn-doc')) {
+
+    card.css('background-color', '#fbc02d');
+
+  } else if (btn.hasClass('zoom-btn-tangram')) {
+
+    card.css('background-color', '#388e3c');
+
+  } else if (btn.hasClass('zoom-btn-report')) {
+
+    card.css('background-color', '#1976d2');
+
+  } else {
+
+    card.css('background-color', '#7b1fa2');
+
+  }
+
+});
+
 </script>
 
 <!-- CHAT Tawk.to Script-->
