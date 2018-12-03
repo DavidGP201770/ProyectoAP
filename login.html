@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>DEV Technology</title>
+    <title>Login</title>
 
     <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
   <!-- Font Awesome -->
@@ -46,12 +46,12 @@
                           </div>
                       </div>
                       <div class="myform-bottom">
-                        <form role="form" action="login.php" method="POST" >
+                        <form role="form" id="miForm">
                           <div class="form-group">
-                              <input type="text" name="usr" placeholder="Usuario..." class="form-control" id="form-username">
+                              <input type="text" id="txtUsu" placeholder="Usuario..." class="form-control" id="form-username" required>
                           </div>
                           <div class="form-group">
-                              <input type="password" name="psw" placeholder="Contraseña..." class="form-control" id="form-password">
+                              <input type="password" id="txtCont" placeholder="Contraseña..." class="form-control" id="form-password" required>
                           </div>
                           <button type="submit" class="mybtn">Ingresar</button>
                         </form>
@@ -59,8 +59,8 @@
 
                       <div class="myform-top">
                           <div class="myform-top-left">
-                            <h3>No estas registrado</h3>
-                              <a href="register.html"><p>Registrate Aqui</p></a>
+                            <h3>No estas registrado?   <a href="register.html">Registrate Aqui</a></h3>
+                             
                           </div>
                       </div>
                   </div>
@@ -68,7 +68,9 @@
 
         </div>
     </div>
-
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="
+    crossorigin="anonymous"></script>
+    <script src="main_Login.js"></script>
   </body>
 
 </html>

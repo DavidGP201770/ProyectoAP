@@ -1,99 +1,151 @@
 <!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Formulario Login</title>
- 
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro Dev Tecnology</title>
     <!-- CSS de Bootstrap -->
-   <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css" integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet"><!--Fuente-->
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-material-design@4.1.1/dist/css/bootstrap-material-design.min.css"
+        integrity="sha384-wXznGJNEXNG1NFsbm0ugrLFMQPWswR3lds2VeinahP8N0zJw9VWSopbjv2x7WCvX" crossorigin="anonymous">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,300,400,500" rel="stylesheet">
+    <!--Fuente-->
     <link rel="stylesheet" href="custom.css">
-    
-  </head>
+</head>
 
-  <body>      
-    <div class="my-content" >
-        <div class="container" > 
+<body>
+    <div class="my-content">
+        <div class="container">
             <div class="row">
-                <div class="col-sm-12" >
-                  <h1><strong>Dev Technology</strong> Registrate</h1>
-                  <div class="mydescription">
-                    <p>Registrate ahora </p>
-                  </div>
+                <div class="col-sm-12">
+                    <h1><strong>Dev Technology</strong> Registrate</h1>
+                    <div class="mydescription">
+                        
+                        <p>Registrate ahora </p>
+                    </div>
                 </div>
             </div>
             <div class="row">
-              <div class="col-sm-6 col-sm-offset-3 myform-cont" >
+                <div class="col-sm-6 col-sm-offset-3 myform-cont">
                     <div class="myform-top">
                         <div class="myform-top-left">
-                          <h3>Regístrate en nuestro sitio.</h3>
+                            <H3><a href="login.html">LOGIN</a></H3>
+                            <h3>Regístrate en nuestro sitio.</h3>
                             <p>Por favor ingresa tus datos personales:</p>
+                            
                         </div>
                         <div class="myform-top-right">
-                          <i class="fa fa-user"></i>
+                            <i class="fa fa-user"></i>
                         </div>
                     </div>
                     <div class="myform-bottom">
-                      <form role="form" action="register.php" method="post">
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Nombres..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="last" placeholder="Apellidos..." class="form-control">
-                        </div>
+                        <form role="form" id="miForm">
 
-                        <div class="form-group">
-                            <input type="text" name="email" placeholder="Email..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="user" placeholder="Usuario..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="pass" placeholder="Password..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="address" placeholder="Direccion..." class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="tel" placeholder="Telefono..." class="form-control">
-                        </div>
+                            <div class="form-group">
+                                <input type="text" id="txtNombre" pattern="[A-Za-z]{1,50}.[A-Za-z]{1,50}" placeholder="Nombre..."
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="txtApellido" pattern="[A-Za-z]{1,50}.[A-Za-z]{1,50}" placeholder="Apellidos..."
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="txtDireccion" pattern="[A-Za-z0-9]{1,50}.[A-Za-z0-9]{1,50}.[A-Za-z0-9]{1,50}" placeholder="Direccion..."
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="txtTelefono" pattern="[0-9]{10,10}" placeholder="Telefono..."
+                                    class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="txtCorreo" placeholder="Correo..." class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" id="txtUsuario" pattern="[A-Za-z0-9_-]{5,20}" 
+                                placeholder="Usuario..." class="form-control" required>
+                            
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="txtPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                                    onkeyup="checkPass(); return false;" placeholder="Contraseña..." class="form-control"
+                                    required>
+                                    <p id="demo"></p>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="txtConfPassword" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}"
+                                    onkeyup="checkPass(); return false;" placeholder="Confirmar Contraseña..." class="form-control"
+                                    required>
+                                    <p id="demo1"></p>
+                            </div>
 
-                        <button type="submit" name="insert" class="mybtn">Registrarme</button>
-                      </form>
-                    </div>
-              </div>
-            </div>
-            
-        </div>
-      </div>
 
-    <!-- Enlazamos el js de Bootstrap, y otros plugins que usemos siempre al final antes de cerrar el body 
-    <div class="row">
-                <div class="col-sm-12 mysocial-login">
-                    <h3>...ingresa también por:</h3>
-                    <div class="mysocial-login-buttons" >
-                      <a class="mybtn-social" href="#">
-                      <i class="fa fa-facebook"></i> Facebook
-                      </a>
-                      <a class="mybtn-social" href="#">
-                      <i class="fa fa-twitter"></i> Twitter
-                      </a>
-                      <a class="mybtn-social" href="#">
-                      <i class="fa fa-google-plus"></i> Google Plus
-                      </a>
+                            <button type="submit" class="mybtn">Registrar</button>
+                        </form>
                     </div>
                 </div>
-            </div>-->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- <input type="text" id="txtUser">
+    <input type="button" value="Verificar" id="btnVerificar">
+    <p id="respuesta"></p> -->
+
+    <!--scripts-->
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js" integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="
+        crossorigin="anonymous"></script>
+    <!--<script src="main.js"></script>-->
+    <script>
+        
+        function checkPass() {
+            var pass1 = document.getElementById('txtPassword');
+            var pass2 = document.getElementById('txtConfPassword');
+            var message=document.getElementById('message');
+
+            var goodColor = "#CCFFCC";
+            var badColor = "#FFCCCC";
+
+            var lowerCaseLetters = /[a-z]/g;
+            var upperCaseLetters = /[A-Z]/g;
+            var numbers = /[0-9]/g;
+  
+ 
+            if ((pass1.value.match(lowerCaseLetters)) &&  (pass1.value.match(upperCaseLetters)) && (pass1.value.match(numbers)) && (pass1.value.length >= 10)) {
+                pass1.style.backgroundColor = goodColor;
+                document.getElementById("demo").innerHTML = "";
+               
+            } else {
+                pass1.style.backgroundColor = badColor;
+                document.getElementById("demo").innerHTML = "Contraseña necesita Mayusculas, Minusculas, Numeros y Minimo 10 caracteres";
+            }
+
+            if (pass1.value == pass2.value) {
+                pass2.style.backgroundColor = goodColor;
+                document.getElementById("demo1").innerHTML = "";
+            }
+            else {
+                pass2.style.backgroundColor = badColor;
+                document.getElementById("demo1").innerHTML = "Contraseña no coincide";
+
+            }
+        }
+    </script>
+
+
+    <script src="main_regUser.js"></script>
+</body>
+
 </html>

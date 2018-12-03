@@ -1,58 +1,40 @@
 <?php
 		
+		$errores= array();
+		$datos=array();
 		
-$usr=$_POST['usr'];
-$psw=$_POST['psw'];
+			include 'func/connect.php';
 
+			$usuario=mysqli_real_escape_string($con, $_POST['usuario']);
+    		$contra=mysqli_real_escape_string($con, $_POST['contra']);
 
-	function validacion($usr,$psw){
-
-			$nombrebd="proyecto";
-			$servidor="localhost";
-			$usuario="root";
-			$contrasena="";
-			$tipA="A";
-			$tipU="U";
-			$n=0;
-			$encontrado=0;
-
+			$sql="SELECT usuario, password, tipo, id FROM usuarios where usuario='".$usuario."'"; //GUARDA LA LINEA DE SQL COMPLETA
+			$result=mysqli_query($con,$sql); //GRABA EN RECORDSET MEDIANTE LA LINEA DE SELECT
+			$resultcheck=mysqli_num_rows($result);
 			
-						$conexion=mysqli_connect($servidor,$usuario,$contrasena,$nombrebd) or die("<h2> No se encuentra el servidor</h2>");
+			if($resultcheck>=1) {
+				if($row=mysqli_fetch_row($result)){
+					$hashedPwdCheck= password_verify($contra, $row[1]);
+					if($hashedPwdCheck==true){
+						
+						if($row[2]=="A"){
+						$datos['exito']=true;
+       	    			$datos['mensaje']='Bienvenido Administrador';
+						}else if($row[2]=="U"){
+						$datos['exito2']=true;
+       	    			$datos['mensaje2']='Bienvenido';
+						}
+					}
+				}
+			}else{
+				$errores['PassUsu']= "Contrasena y/o Usuario incorrecto";
+				$datos['exito']=false;
+        		$datos['errores']=$errores;
+			}
+				
+    
+    //Dar respuesta
 
-						$consultabd="SELECT * FROM $nombrebd.usuarios"; //GUARDA LA LINEA DE SQL COMPLETA
-						$resultados=mysqli_query($conexion,$consultabd); //GRABA EN RECORDSET MEDIANTE LA LINEA DE SELECT
-						while($fila=mysqli_fetch_row($resultados)){ //ESTA GENERA LA CONSULTA REALMENTE PERO NO DE LA BD SI NO DEL RECORDSET
-
-							/*echo "$fila[0]";
-							echo "$fila[1]";
-							echo "$fila[2]";*/
-
-							if ($usr==$fila[1] && $psw==$fila[2]) 
-							{
-									$encontrado=1;
-									break;
-							}
-						    }
-
-								if ($encontrado==1) 
-								{
-							
-										if ($tipA==$fila[3]){
-											include "administracionusuarios.php";
-										}
-										if ($tipU==$fila[3]) {
-											include "index.html";
-										}
-								}
-							if($usr!=$fila[1] && $psw!=$fila[2])
-							{
-								echo "Acceso Denegado tu usuario y/o contrasena es incorrecta";
-							}
-
-			return $conexion;
-	}
-
-			validacion($usr,$psw);
-
+    echo json_encode($datos);
 
   ?>

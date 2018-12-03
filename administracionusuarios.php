@@ -28,7 +28,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title> DEV Technology - Inicio </title>
+  <title> Mantenimiento </title>
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -81,7 +81,10 @@
         <a class="nav-link" href="about.html">Acerca de Nosotros</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.html">Return</a>
+        <a class="nav-link" href="login.html">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="adminUser.html">Config</a>
       </li>
       
       <!-- Collapsible content -->
@@ -141,31 +144,32 @@
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
     <div class="input-group">
       <label>Usuario</label>
-      <input type="text" name="user" value="<?php echo $user; ?>">
+      <input type="text" name="user" pattern="[A-Za-z0-9_-]{5,20}" value="<?php echo $user; ?>" required>
     </div>
     <div class="input-group">
-      <label>Password</label>
-      <input type="text" name="pass" value="<?php echo $pass; ?>">
+      <label>Contraseña</label>
+      <input type="password" id="txtPassword" name="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,300}" onkeyup="checkPass(); return false;"  value="<?php echo $pass; ?>" required>
+      <p id="demo"></p>
     </div>
 		<div class="input-group">
 			<label>Nombre</label>
-			<input type="text" name="name" value="<?php echo $name; ?>">
+			<input type="text" name="name" pattern="[A-Za-z]{1,50}.[A-Za-z]{1,50}" value="<?php echo $name; ?>" required>
 		</div>
     <div class="input-group">
       <label>Apellido</label>
-      <input type="text" name="last" value="<?php echo $last; ?>">
+      <input type="text" name="last" pattern="[A-Za-z]{1,50}.[A-Za-z]{1,50}" value="<?php echo $last; ?>" required>
     </div>
     <div class="input-group">
       <label>Correo</label>
-      <input type="text" name="email" value="<?php echo $email; ?>">
+      <input type="text" name="email" value="<?php echo $email; ?>" required>
     </div>
 		<div class="input-group">
 			<label>Direccion</label>
-			<input type="text" name="address" value="<?php echo $address; ?>">
+			<input type="text" name="address" pattern="[A-Za-z0-9]{1,50}.[A-Za-z0-9]{1,50}.[A-Za-z0-9]{1,50}" value="<?php echo $address; ?>" required>
 		</div>
     <div class="input-group">
       <label>Telefono</label>
-      <input type="text" name="tel" value="<?php echo $tel; ?>">
+      <input type="text" name="tel" pattern="[0-9]{10,10}" value="<?php echo $tel; ?>" required>
     </div>
 		<div class="input-group">
 			<?php if ($update == true): ?>
@@ -175,7 +179,6 @@
 			<?php endif ?>
 		</div>
 	</form>
-</body>
 
 
 
@@ -183,13 +186,34 @@
   <hr>
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
-  <!-- MDB core JavaScript -->
-  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js" integrity="sha256-spTpc4lvj4dOkKjrGokIrHkJgNA0xMS98Pw9N7ir9oI="
+        crossorigin="anonymous"></script>
+    <!--<script src="main.js"></script>-->
+    <script>
+        
+        function checkPass() {
+            var pass1 = document.getElementById('txtPassword');
+
+            var goodColor = "#CCFFCC";
+            var badColor = "#FFCCCC";
+
+            var lowerCaseLetters = /[a-z]/g;
+            var upperCaseLetters = /[A-Z]/g;
+            var numbers = /[0-9]/g;
+  
+ 
+            if ((pass1.value.match(lowerCaseLetters)) &&  (pass1.value.match(upperCaseLetters)) && (pass1.value.match(numbers)) && (pass1.value.length >= 10)) {
+                pass1.style.backgroundColor = goodColor;
+                document.getElementById("demo").innerHTML = "";
+               
+            } else {
+                pass1.style.backgroundColor = badColor;
+                document.getElementById("demo").innerHTML = "Contraseña necesita Mayusculas, Minusculas, Numeros y Minimo 10 caracteres";
+            }
+        }
+    </script>
+
+
 </body>
 </html>
 
